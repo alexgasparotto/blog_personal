@@ -84,13 +84,71 @@ body{
   margin-right: 65px;
 }
 
+#logo:hover h3{
+  animation: fromRight 300ms linear;
+}
+
+@keyframes fromRight{
+  from{
+    transform: translateX(200%);
+  }
+
+  to{
+    transform: translateX(0%);
+  }
+}
+
+
+#logo:hover{
+  border-radius: 2px;
+  color: black;
+  background-color: #ccc;
+}
+
 #logo .gear{
   display: block;
   float: left;
   font-size: 30px;
   margin-top: 8px;
   margin-left: 26px;
+  animation-name: rotate-gear;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
+
+
+#logo:hover .gear{
+  animation: fromBellow 500ms linear;
+}
+
+@keyframes fromBellow{
+  0%{
+    transform: translateY(0%);
+  }
+
+  50%{
+    transform: translateY(200%);
+  }
+
+  100%{
+    transform: translateY(0%);
+  }
+}
+
+/* Keyframes para crear animacion */
+
+@keyframes rotate-gear{
+  from{
+    transform: rotateZ(0deg);
+  }
+
+  to{
+    transform: rotateZ(360deg);
+  }
+}
+
+/* Fin a la animacion de tuerca gear */
 
 #menu{
   float: right;
@@ -129,7 +187,21 @@ transition: all 200ms;
     background: url(/assets/img/bakbaner.png);
     background-position: -200px -200px;
     margin: 20px auto;
+    overflow: hidden;
+    animation: backBanner 10s linear;
   }
+
+  /* Efecto fluido en el banner estilo video intro */
+  @keyframes backBanner{
+    0%{
+      background-position: 0px 0px;
+    }
+
+    100%{
+      background-position: -200px -200px;
+    }
+  }
+  /* Efecto fluido en el banner estilo video intro */
 
   #banner h1{
     display: block;
@@ -141,6 +213,30 @@ transition: all 200ms;
     margin: 27px auto;
     font-weight: normal;
     text-shadow: 2px 2px 1px black;
+    animation: showText 10s linear;
+  }
+
+  @keyframes showText{
+    0%{
+      transform: translateX(-600%) scale(5,5);
+      opacity: 1;
+    }
+    50%{
+      transform: translateX(600%) scale(5,5);
+      opacity: 1;
+    }
+    75%{
+      transform: translateX(-600%) scale(5,5);
+      text-shadow:none;
+      color: transparent;
+      opacity: 0;
+    }
+    100%{
+      transform: translateX(0%) scale(1,1);
+      text-shadow: 2px 2px 1px black;
+      color: white;
+      opacity: 1;
+    }
   }
 
   /* TARJETAS */
